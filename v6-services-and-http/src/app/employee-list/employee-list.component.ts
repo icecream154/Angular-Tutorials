@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from './../employee.service';
+import { EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'employee-list',
+  selector: 'app-employee-list',
   template: `
     <h2>Employee List</h2>
     <h3>{{errorMsg}}</h3>

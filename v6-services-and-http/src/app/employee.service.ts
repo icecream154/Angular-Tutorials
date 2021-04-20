@@ -6,20 +6,19 @@ import { IEmployee } from './employee';
 import { tap, catchError } from 'rxjs/operators';
 
 
-
 @Injectable()
 export class EmployeeService {
 
-  private _url: string = "/assets/data/employees.json";
+  private _url = '/assets/data/employees.json';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getEmployees(): Observable<IEmployee[]>{
+  getEmployees(): Observable<IEmployee[]> {
     return this.http.get<IEmployee[]>(this._url)
-                    .pipe(tap(data => alert(JSON.stringify(data))) , catchError(this.errorHandler))
+                    .pipe(tap(data => alert(JSON.stringify(data))) , catchError(this.errorHandler));
   }
-  errorHandler(error: HttpErrorResponse){
-    return observableThrowError(error.message || "Server Error");
+  errorHandler(error: HttpErrorResponse) {
+    return observableThrowError(error.message || 'Server Error');
   }
 
 }
